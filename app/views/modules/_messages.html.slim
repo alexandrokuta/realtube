@@ -1,2 +1,2 @@
 - messages.each do |message|
-  .message__content=message.content
+  .message__content data-user_id="#{message.user_id}"=message.content

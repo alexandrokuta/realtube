@@ -1,6 +1,6 @@
 function buildHtml(data) {
   if(data.content){
-  var html = `<div class="message__content">${data.content}</div>`
+  var html = `<div class="message__content" data-user_id=${data.user.id}>${data.user.nickname}:${data.content}</div>`
   $('.chat__contents').append(html);
   $('.chat__contents').animate({scrollTop: $('.message__content')[0].scrollHeight});
 }
