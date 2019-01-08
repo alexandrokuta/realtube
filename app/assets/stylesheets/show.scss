@@ -27,7 +27,7 @@
 
   }
 }
-iframe {
+#player {
   height:100%;
   width: 100%;
 }
@@ -40,6 +40,7 @@ iframe {
   .chat__contents{
     height: 80%;
     width: 90%;
+    overflow: scroll;
     background-color: ghostwhite;
     @include position-absolute(absolute,0,0,0,0,auto);
     .message__content {

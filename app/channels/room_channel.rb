@@ -7,7 +7,13 @@ class RoomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def speak(data)
-    ActionCable.server.broadcast 'room_channel', content: data['content']
+  def play
+    ActionCable.server.broadcast 'room_channel'
   end
+
+  def speak(data)
+    save_content = Message.create!(content: data['content'], youtube: data['youtube'])
+    ActionCable.server.broadcast 'room_channel', content: save_content.content, youtube: save_content.youtube
+  end
+
 end

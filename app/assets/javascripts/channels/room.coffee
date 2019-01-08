@@ -6,8 +6,11 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    alert data['content']
+    buildHtml(data)
     # Called when there's incoming data on the websocket for this channel
 
-  speak:(content) ->
-    @perform 'speak', content:content
+  speak:(content,youtube) ->
+    @perform 'speak', content:content, youtube:youtube
+
+  play: ->
+    @perform 'play'
