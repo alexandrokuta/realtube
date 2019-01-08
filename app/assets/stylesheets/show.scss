@@ -1,0 +1,51 @@
+@mixin position-absolute ($absolute: absolute,$top: 0,$right: 0,$left: 0,$bottom: 0,$margin: auto){
+  position: $absolute;
+  top: $top;
+  right: $right;
+  left: $left;
+  bottom: $bottom;
+  margin: $margin;
+}
+
+.content__wrapper {
+    height: 100vh;
+    background-color: aliceblue;
+    display: flex;
+}
+
+
+.youtube__content__wrapper {
+    height: 70%;
+    background-color: antiquewhite;
+    width: 70%;
+    position:relative;
+.youtube__box {
+    height: 80%;
+    width: 80%;
+    background-color: aquamarine;
+    @include position-absolute(absolute,0,0,0,0,auto);
+
+  }
+}
+iframe {
+  height:100%;
+  width: 100%;
+}
+
+.chat__contents__wrapper {
+    height: 70%;
+    width: 30%;
+    background-color: aqua;
+    position: relative;
+  .chat__contents{
+    height: 80%;
+    width: 90%;
+    background-color: ghostwhite;
+    @include position-absolute(absolute,0,0,0,0,auto);
+    .message__content {
+    padding: 10px;
+    background-color: darkcyan;
+    margin: 10px;
+    }
+ }
+}

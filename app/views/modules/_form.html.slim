@@ -1,0 +1,9 @@
+.form__content__wrapper
+  = form_with model:@message, local:true do |f|
+    .form__message
+      =f.label :テキスト
+      =f.text_field :contet, class: 'content__message'
+    .form__youtube
+      =f.label :youtube
+      =f.text_field :youtube, class: 'content__youtube'
+    = f.submit value:'送信'

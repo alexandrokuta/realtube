@@ -1,0 +1,9 @@
+= render 'modules/header'
+.content__wrapper
+  .youtube__content__wrapper
+    .youtube__box
+      iframe#player frameborder="0" height="360" src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com" type="text/html" width="640"
+  .chat__contents__wrapper
+    .chat__contents
+      = render partial:'modules/messages',locals:{messages: @messages}
+  =render partial:'modules/form'
