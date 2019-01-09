@@ -6,7 +6,9 @@
   bottom: $bottom;
   margin: $margin;
 }
-
+a {
+text-decoration: none;
+}
 .content__wrapper {
     height: 100vh;
     background-color: #eee;

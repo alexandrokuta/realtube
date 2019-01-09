@@ -1,0 +1,8 @@
+= render 'modules/header'
+.index__wrapper
+  = @rooms.each do |f|
+    .room__wrapper
+      img.room__image
+      span.room__name =room.name
+      p.room__description =room.description
+

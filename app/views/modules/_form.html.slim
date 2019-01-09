@@ -1,5 +1,5 @@
 .form__content__wrapper
-  = form_with model:@message, local:true do |f|
+  = form_with model:@message, local:true ,class:"message_form" do |f|
     .form__message
       =f.text_field :content, class: 'content__message',placeholder:"text"
     .form__youtube

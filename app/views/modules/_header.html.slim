@@ -1,9 +1,12 @@
 .nav__bar
-  .title__box = "RealTube"
+  .title__box= link_to "RealTube",rooms_path
   .menu__link = "Menu"
   .link__wrapper
     .nav__bar__link
       =link_to "Login", new_user_session_path,method:'post'
     .nav__bar__link__logout
       =link_to "Logout", destroy_user_session_path, method:"delete"
+    .create__group__link
+      =link_to "Make Group",new_room_path
     .user__name = "User: #{current_user.nickname}"
+

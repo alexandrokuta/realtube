@@ -1,5 +1,5 @@
 $(function(){
-  $("form").on('submit',function(e){
+  $(".message_form").on('submit',function(e){
       e.preventDefault();
       var content = $('[name=content]').val();
       var youtube = $('[name=youtube').val();
