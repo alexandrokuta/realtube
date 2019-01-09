@@ -1,2 +1,5 @@
 - messages.each do |message|
-  .message__content=message.content
+  - if message.user.id == current_user.id
+    .message__content data-user_id="#{message.user_id}"="#{current_user.nickname}:  #{message.content}"
+  - else
+    .message__content__right data-user_id="#{message.user_id}"="#{message.user.nickname}:  #{message.content}"

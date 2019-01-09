@@ -12,8 +12,9 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    save_content = Message.create!(content: data['content'], youtube: data['youtube'])
-    ActionCable.server.broadcast 'room_channel', content: save_content.content, youtube: save_content.youtube
+    save_content = Message.create!(content: data['content'], youtube: data['youtube'], user_id: current_user.id)
+    user = User.find(current_user.id)
+    ActionCable.server.broadcast 'room_channel', content: save_content.content, youtube: save_content.youtube, user_id: save_content.user_id, user: user
   end
 
 end
