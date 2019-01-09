@@ -4,6 +4,6 @@
     .youtube__box
       iframe#player allow=("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture") allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/bHQqvYy5KYo?enablejsapi=1&origin=http://example.com" width="560"
   .chat__contents__wrapper
-    .chat__contents
+    .chat__contents data-room_id="#{@room.id}"
       = render partial:'modules/messages',locals:{messages: @messages}
   =render partial:'modules/form'

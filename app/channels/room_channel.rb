@@ -1,6 +1,6 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room_channel"
+    stream_from "room_channel#{params['room_id']}"
   end
 
   def unsubscribed
@@ -14,7 +14,7 @@ class RoomChannel < ApplicationCable::Channel
   def speak(data)
     save_content = Message.create!(content: data['content'], youtube: data['youtube'], user_id: current_user.id)
     user = User.find(current_user.id)
-    ActionCable.server.broadcast 'room_channel', content: save_content.content, youtube: save_content.youtube, user_id: save_content.user_id, user: user
+    ActionCable.server.broadcast "room_channel#{params['room_id']}", content: save_content.content, youtube: save_content.youtube, user_id: save_content.user_id, user: user
   end
-
 end
+

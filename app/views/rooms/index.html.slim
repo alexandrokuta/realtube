@@ -1,8 +1,10 @@
 = render 'modules/header'
 .index__wrapper
-  = @rooms.each do |f|
+  - @rooms.each do |room|
     .room__wrapper
-      img.room__image
+      =link_to room_path(room)
+        img.room__image src="https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg"
       span.room__name =room.name
-      p.room__description =room.description
+    .room__description
+      p =room.description
 

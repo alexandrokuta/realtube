@@ -4,7 +4,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @messages = Message.all.includes(:user)
+    @room = Room.find(params[:id])
+    @messages = Message.where(room_id:params[:id]).includes(:user)
   end
 
   def new

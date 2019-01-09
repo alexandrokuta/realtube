@@ -1,16 +1,18 @@
-App.room = App.cable.subscriptions.create "RoomChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
+document.addEventListener 'turbolinks:load', ->
+  room_id = $('.chat__contents').data('room_id')
+  App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: room_id },
+    connected: ->
+      # Called when the subscription is ready for use on the server
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+    disconnected: ->
+      # Called when the subscription has been terminated by the server
 
-  received: (data) ->
-    buildHtml(data)
-    # Called when there's incoming data on the websocket for this channel
+    received: (data) ->
+      buildHtml(data)
+      # Called when there's incoming data on the websocket for this channel
 
-  speak:(content,youtube) ->
-    @perform 'speak', content:content, youtube:youtube
+    speak:(content,youtube) ->
+      @perform 'speak', content:content, youtube:youtube
 
-  play: ->
-    @perform 'play'
+    play: ->
+      @perform 'play'
